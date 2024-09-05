@@ -125,9 +125,13 @@ button:hover {
     padding: 15px;
   }
 
-  h1 {
-    font-size: 1.5rem;
-  }
+  .reservation-title {
+    font-size: 50p; /* Postavi željenu veličinu naslova */
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 20px;
+    color: black;
+}
 
   .teren-image {
     width: 100%;

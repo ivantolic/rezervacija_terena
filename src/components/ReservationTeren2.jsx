@@ -39,7 +39,7 @@ function ReservationTeren2() {
 
   return (
     <div className="reservation-page">
-      <h1>Rezervacija unutarnjeg terena 2</h1>
+      <h1 className='reservation-title'>Rezervacija unutarnjeg terena 2</h1>
       <img src={vanjskiTeren} alt="Unutarnji teren" className="teren-image" />
       <Calendar
         onChange={handleDateChange}

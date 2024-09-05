@@ -9,7 +9,7 @@ function Home() {
       <div className="row">
 
         <div className="col">
-          <h1>FUC</h1>
+          <h1 className='home-naslov'>FUC</h1>
           <p style={{ fontSize: '16px', paddingTop: '5px' }}>
             Želite se zabaviti sa svojom ekipom na našim novoizgrađenim terenima? <br />
             Rezervirajte svoj termin odmah sada!
