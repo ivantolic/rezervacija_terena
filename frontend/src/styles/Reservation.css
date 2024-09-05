@@ -1,0 +1,62 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  .flexbox-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-top: 50px; /* Dodan razmak od vrha */
+  }
+  
+  .teren1, .teren2, .teren3 {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .teren1_naslov, .teren2_naslov, .teren3_naslov {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 20px; /* Razmak ispod naslova */
+  }
+  
+  .rezerviraj {
+    display: block;
+    width: 250px; /* Širina gumbova */
+    padding: 15px; /* Dovoljno prostora unutar gumbova */
+    background-color: #04AA6D;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    transition: opacity 0.15s;
+    text-align: center; /* Centriranje teksta unutar gumba */
+    margin-top: 20px; /* Razmak između slike i gumba */
+  }
+  
+  .rezerviraj:hover {
+    background-color: #037a4d;
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  
+  /* Stilovi za slike */
+  .unutarnji, .vanjski1, .vanjski2 {
+    max-width: 100%;
+    width: 500px;
+    margin-bottom: 20px; /* Jednaki razmak ispod svake slike */
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+  }
