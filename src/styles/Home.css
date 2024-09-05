@@ -49,18 +49,18 @@
     width: 310px;
     height: 60px;
     padding: 12px;
-    background: whitesmoke;
-    color: black;
+    background: #04AA6D; /* Zelena boja, ista kao u rezervaciji */
+    color: white;
     font-size: 1.5rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
-  }
-  
-  button:hover {
-    background: gray;
-  }
+}
+
+button:hover {
+    background: #037a4d; /* Tamnija zelena na hover */
+}
   
   /* Responzivnost */
   @media (max-width: 768px) {
