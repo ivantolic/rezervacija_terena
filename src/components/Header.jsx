@@ -32,9 +32,9 @@ function Header() {
             <li><Link to="/login" onClick={() => setIsMenuOpen(false)}>PRIJAVI SE</Link></li>
           )}
 
-          {/* Ako nismo na stranici "Register", prikazujemo link */}
-          {location.pathname !== '/register' && (
-            <li><Link to="/register" onClick={() => setIsMenuOpen(false)}>REGISTRIRAJ SE</Link></li>
+          {/* Ako nismo na stranici "Signin", prikazujemo link */}
+          {location.pathname !== '/signin' && (
+            <li><Link to="/signin" onClick={() => setIsMenuOpen(false)}>REGISTRIRAJ SE</Link></li>
           )}
 
           {/* Link na FAQ je uvijek prikazan */}

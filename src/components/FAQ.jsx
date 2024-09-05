@@ -55,7 +55,7 @@ function FAQ() {
             <div className="content open">
               <p>
                 Termin možete rezervirati svaki dan u tjednu u okviru radnog vremena. <br />
-                Radno vrijeme: 8-23.
+                Radno vrijeme: 14-24.
               </p>
             </div>
           )}

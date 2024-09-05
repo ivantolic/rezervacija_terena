@@ -7,7 +7,7 @@ function Footer() {
       <p>Autorska prava © 2024 FUC. Sva prava zadržana.</p>
       <p>Email: info@fuc.com</p>
       <p>Telefon: +385 91 123 4567</p>
-      <p>Adresa: Ulica Nogometna 123, 10000 Zagreb</p>
+      <p>Adresa: Ulica nogometni tereni 47, 3100 Osijek</p>
     </footer>
   );
 }
