@@ -2,24 +2,22 @@
     box-sizing: border-box;
 }
 
-/* Općenito stiliziranje za cijelu stranicu */
 body, html {
     height: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: white; /* Bijela pozadina */
-    background-image: none !important; /* Uklanja pozadinsku sliku */
+    background-color: white; 
+    background-image: none !important; 
 }
 
-/* Stiliziranje za glavni kontejner */
 .container-signin {
     max-width: 400px;
-    margin: 80px auto; /* Centriraj signin po sredini stranice */
+    margin: 80px auto; 
     padding: 16px;
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Blagi sjaj za izgled */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 input[type=text], input[type=password] {

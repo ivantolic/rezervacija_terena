@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Footer.css'; // Putanja do CSS datoteke
+import '../styles/Footer.css';
 
 function Footer() {
   return (

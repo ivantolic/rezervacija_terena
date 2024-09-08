@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import unutarnjiTeren from '../assets/fuc1.jpg'; // Slike terena
+import unutarnjiTeren from '../assets/fuc1.jpg'; 
 import vanjskiTeren1 from '../assets/fuc2.webp';
 import vanjskiTeren2 from '../assets/fuc3.webp';
-import '../styles/Reservation.css'; // Vanjski CSS za stilizaciju
+import '../styles/Reservation.css'; 
 
 function Reservation() {
   return (

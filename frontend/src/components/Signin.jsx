@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import '../styles/signin.css';
+import { auth } from '../firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { db } from '../firebase'; // Firebase Firestore
+import { collection, addDoc } from 'firebase/firestore'; // Firestore functions
+import '../styles/Signin.css';
 
 function Signin() {
   const [username, setUsername] = useState('');
@@ -7,9 +11,9 @@ function Signin() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!email.includes('@')) {
       alert('Email mora sadržavati znak @.');
       return;
@@ -21,35 +25,37 @@ function Signin() {
     if (email === '' || password === '' || username === '') {
       alert('Popunite sva polja.');
       return;
-    } else {
-      alert('Prijava u tijeku');
-      sendLoginDataToServer(username, email, password);
+    }
+
+    try {
+      // Kreiraj novog korisnika koristeci Firebase Authentication
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Spremi korisnika u Firestore nakon uspjesne registracije
+      await saveUserToFirestore(user);
+
+      console.log('Korisnik registriran:', user);
+      alert('Uspješno ste registrirani!');
+    } catch (error) {
+      console.error('Greška prilikom registracije:', error.message);
+      alert('Greška prilikom registracije: ' + error.message);
     }
   };
 
-  const sendLoginDataToServer = (username, email, password) => {
-    const url = ''; // URL za backend API
-
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ username, email, password }),
-    };
-
-    fetch(url, options)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          alert('Uspješno ste prijavljeni!');
-        } else {
-          alert('Neuspješna prijava. Provjerite svoje podatke.');
-        }
-      })
-      .catch((error) => {
-        console.error('Greška prilikom slanja podataka na poslužitelj:', error);
+  // Funkcija za spremanje korisnika u Firestore
+  const saveUserToFirestore = async (user) => {
+    try {
+      await addDoc(collection(db, 'korisnici'), {
+        uid: user.uid,
+        email: user.email,
+        username: username, // Korisnicko ime iz state-a
+        role: 'user', // Default role za korisnika
       });
+      console.log('Korisnik uspješno spremljen u Firestore.');
+    } catch (error) {
+      console.error('Greška prilikom spremanja korisnika:', error);
+    }
   };
 
   return (

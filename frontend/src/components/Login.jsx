@@ -1,48 +1,38 @@
 import React, { useState } from 'react';
+import { auth } from '../firebase';  // Ispravna putanja nakon što premjestiš datoteku
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import '../styles/Login.css';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Provjera emaila
     if (!email.includes('@')) {
       alert('Email mora sadržavati znak @.');
       return;
     }
+    // Provjera da sva polja budu popunjena
     if (email === '' || password === '') {
       alert('Popunite sva polja.');
-    } else {
-      alert('Prijava u tijeku');
-      sendLoginDataToServer(email, password);
+      return;
     }
-  };
 
-  const sendLoginDataToServer = (email, password) => {
-    // Ovdje ide logika za slanje podataka na server
-    const url = ''; // URL za backend API
-
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    };
-
-    fetch(url, options)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          alert('Uspješno ste prijavljeni!');
-        } else {
-          alert('Neuspješna prijava. Provjerite svoje podatke.');
-        }
-      })
-      .catch((error) => {
-        console.error('Greška prilikom slanja podataka na poslužitelj:', error);
-      });
+    try {
+      // Prijava korisnika s Firebase autentifikacijom
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      console.log('Korisnik prijavljen:', userCredential.user);
+      alert('Uspješno ste prijavljeni!');
+      
+      // Preusmjeravanje korisnika nakon uspjesne prijave
+      window.location.href = "/"; 
+    } catch (error) {
+      console.error('Greška prilikom prijave:', error.message);
+      alert('Greška prilikom prijave: ' + error.message);
+    }
   };
 
   return (
@@ -59,7 +49,7 @@ function Login() {
           id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" // HTML validacija
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" // html validacija
           required
         />
 

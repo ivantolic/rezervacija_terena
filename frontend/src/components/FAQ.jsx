@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import '../styles/FAQ.css';
 
 function FAQ() {
-  const [openSection, setOpenSection] = useState(null); // Praćenje koja je sekcija otvorena
+  const [openSection, setOpenSection] = useState(null); // Pracenje koja je sekcija otvorena
 
   const toggleSection = (section) => {
-    // Ako je kliknuta sekcija već otvorena, zatvori je
+    // Ako je kliknuta sekcija vec otvorena zatvori je
     if (openSection === section) {
       setOpenSection(null);
     } else {
-      setOpenSection(section); // Inače, otvori kliknutu sekciju
+      setOpenSection(section); // Inace otvori kliknutu sekciju
     }
   };
 
